@@ -51,9 +51,21 @@ body{
 .sidebar{
     grid-row: 1/2;
     background-color: aliceblue;
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .sidebar h1{
     font-size: 28px;
+	flex: 1 1 0%;
+    align-self: center;
+    margin-top: 35px;
+}
+
+#add-book{
+	width: 70%;
+    margin: auto;
+    flex: 5 1 0;
 }
 
 form  *{
@@ -61,12 +73,42 @@ form  *{
     
 }
 
+form input{
+	width: 100%;
+    padding-bottom: 15p;
+    margin-bottom: 15px;
+}
+
 .checkbox *{
+	width: auto;
     display: inline-block;
 }
 
-.library-conatainer{
+.library-container{
     display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+	grid-template-rows: repeat(auto-fill, 200px);
 }
 
+#new-book{
+	width: 50%;
+    margin: 30px auto;
+}
 
+.book-card{
+	box-sizing: border-box;
+    width: 280px;
+    height: 170px;
+    background: aliceblue;
+    margin: auto;
+    box-shadow: 3px 4px 4px 1px grey;
+    border-radius: 15px;
+    display: grid;
+    padding: 10px 10px;
+}
+
+.book-card button {
+	width: 50%;
+    margin: auto;
+    height: 90%;
+}

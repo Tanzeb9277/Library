@@ -46,7 +46,8 @@ function addRemoveButton(){
 
 
 
-function Book(title, author, pages, read){
+function Book(id, title, author, pages, read){
+    this.id = id;
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -54,7 +55,8 @@ function Book(title, author, pages, read){
 }
 
 function addBookToLibrary(title, author, pages, read) {
-    const book = new Book(title, author, pages, read);
+    let id = Math.floor(Math.random()*90000) + 10000;
+    const book = new Book(id, title, author, pages, read);
     myLibrary.push(book)
     console.log(myLibrary)
 }
@@ -63,7 +65,7 @@ function addBookToLibrary(title, author, pages, read) {
 function removeBook(data){
 
     myLibrary.find((obj, i) => {
-        if (obj.title == data) {
+        if (obj.id == data) {
             myLibrary.splice(i, 1)
             return true;
         }
@@ -79,11 +81,11 @@ function listBooks(){
         if (myLibrary[i].read == true){
             read = "Completed";
         }else read = "Not Completed";
-        let newCard = `<h1>${myLibrary[i].title}</h1>
-            <h1>${myLibrary[i].author}</h1>
-            <h1>${myLibrary[i].pages}</h1>
+        let newCard = `<h1>Title: ${myLibrary[i].title}</h1>
+            <h1>Author: ${myLibrary[i].author}</h1>
+            <h1>${myLibrary[i].pages} Pages</h1>
             <button class="read-button">${read}</button>
-            <button class="remove-button" data-title=${myLibrary[i].title}>Remove</button>`;
+            <button class="remove-button" data-title=${myLibrary[i].id}>Remove</button>`;
         div.innerHTML = newCard;
         library.appendChild(div);
     }
